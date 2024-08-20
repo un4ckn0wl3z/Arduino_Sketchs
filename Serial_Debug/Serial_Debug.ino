@@ -7,7 +7,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  Serial.println("Hello Arduino");
+  Serial.println("Hello Arduino in loop");
   delay(1500);
 
 }
