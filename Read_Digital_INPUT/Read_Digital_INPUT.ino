@@ -1,6 +1,6 @@
 // C++ code
 #define BUTTON_PIN 2
-#define LED_PIN 12
+#define LED_PIN 11
 
 void setup()
 {
@@ -12,9 +12,9 @@ void loop()
 {
   Serial.println(digitalRead(BUTTON_PIN));
   if(digitalRead(BUTTON_PIN)) {
-    digitalWrite(LED_PIN, HIGH);
+    analogWrite(LED_PIN, 255);
   }else {
-        digitalWrite(LED_PIN, LOW);
+    analogWrite(LED_PIN, 0);
   }
   delay(100);
 }
