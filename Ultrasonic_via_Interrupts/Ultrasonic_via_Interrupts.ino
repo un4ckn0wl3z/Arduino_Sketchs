@@ -73,17 +73,17 @@ void loop() {
       digitalWrite(GREEN_LED_PIN, HIGH);
       digitalWrite(RED_LED_PIN, LOW);
       digitalWrite(YELLOW_LED_PIN, LOW);
-      digitalWrite(BUZZER_PIN, LOW);
+      //digitalWrite(BUZZER_PIN, LOW);
     }else if (distance >= 20) {
       digitalWrite(GREEN_LED_PIN, LOW);
       digitalWrite(RED_LED_PIN, LOW);
       digitalWrite(YELLOW_LED_PIN, HIGH);
-      digitalWrite(BUZZER_PIN, LOW);
+      //digitalWrite(BUZZER_PIN, LOW);
     } else {
       digitalWrite(GREEN_LED_PIN, LOW);
       digitalWrite(RED_LED_PIN, HIGH);
       digitalWrite(YELLOW_LED_PIN, LOW);
-      digitalWrite(BUZZER_PIN, HIGH);
+      //digitalWrite(BUZZER_PIN, HIGH);
     }
   }
 
