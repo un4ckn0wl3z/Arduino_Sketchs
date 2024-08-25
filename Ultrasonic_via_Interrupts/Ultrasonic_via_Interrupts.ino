@@ -12,6 +12,7 @@ volatile unsigned long pulseInTimeBegin;
 volatile unsigned long pulseInTimeEnd;
 volatile bool newDistanceAvailable = false;
 
+double previousDistance = 400.0;
 
 void triggerUltrasonicSensor() {
   digitalWrite(TRIGGER_PIN, LOW);
@@ -24,6 +25,13 @@ void triggerUltrasonicSensor() {
 double getUltrasonicDistance() {
   double durationMicros = pulseInTimeEnd - pulseInTimeBegin;
   double distance = durationMicros / 58.0;
+  if (distance > 400.0) {
+    return previousDistance;
+  }
+
+  distance = previousDistance * 0.5 + distance * 0.5;
+
+  previousDistance = distance;
   return distance;
 }
 
