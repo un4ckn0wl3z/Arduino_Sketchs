@@ -2,6 +2,10 @@
 #define TRIGGER_PIN 4
 #define BUZZER_PIN 13
 
+#define RED_LED_PIN 12
+#define GREEN_LED_PIN 10
+#define YELLOW_LED_PIN 11
+
 unsigned long lastTimeUltrasonicTrigger = millis();
 unsigned long ultrasonicTriggerDelay = 100;
 volatile unsigned long pulseInTimeBegin;
@@ -42,6 +46,11 @@ void setup() {
   pinMode(TRIGGER_PIN, OUTPUT);
   pinMode(BUZZER_PIN, OUTPUT);
 
+  pinMode(RED_LED_PIN, OUTPUT);
+  pinMode(GREEN_LED_PIN, OUTPUT);
+  pinMode(YELLOW_LED_PIN, OUTPUT);
+
+
   attachInterrupt(digitalPinToInterrupt(ECHO_PIN), echoPinInterrupt, CHANGE);
 
 }
@@ -59,11 +68,23 @@ void loop() {
         // read echo
     double distance = getUltrasonicDistance();
     Serial.println(distance);
-    // if(distance < 10.0) {
-    //   digitalWrite(BUZZER_PIN, HIGH);
-    // }else {
-    //   digitalWrite(BUZZER_PIN, LOW);
-    // }
+
+    if (distance >= 100) {
+      digitalWrite(GREEN_LED_PIN, HIGH);
+      digitalWrite(RED_LED_PIN, LOW);
+      digitalWrite(YELLOW_LED_PIN, LOW);
+      digitalWrite(BUZZER_PIN, LOW);
+    }else if (distance >= 20) {
+      digitalWrite(GREEN_LED_PIN, LOW);
+      digitalWrite(RED_LED_PIN, LOW);
+      digitalWrite(YELLOW_LED_PIN, HIGH);
+      digitalWrite(BUZZER_PIN, LOW);
+    } else {
+      digitalWrite(GREEN_LED_PIN, LOW);
+      digitalWrite(RED_LED_PIN, HIGH);
+      digitalWrite(YELLOW_LED_PIN, LOW);
+      digitalWrite(BUZZER_PIN, HIGH);
+    }
   }
 
 
