@@ -55,7 +55,8 @@ void setup() {
 
   lcd.begin();
   lcd.backlight();
-  lcd.print("Distance: ");
+  lcd.print("Ultrasonic data");
+  
   
   // put your setup code here, to run once:
   // Serial.begin(115200);
@@ -85,7 +86,9 @@ void loop() {
         // read echo
     double distance = getUltrasonicDistance();
     // Serial.println(distance);
-    lcd.setCursor(10, 0);
+    lcd.setCursor(0, 1);
+    lcd.print("Distance: ");
+    lcd.setCursor(10, 1);
     lcd.print(distance);
 
   }
