@@ -15,7 +15,7 @@ void setup() {
   myDisplay.begin();
   myDisplay.setIntensity(4);
   myDisplay.displayClear();
-  myDisplay.displayScroll("...", PA_CENTER, PA_SCROLL_LEFT, 100);
+  myDisplay.displayScroll("_", PA_CENTER, PA_SCROLL_LEFT, 100);
 }
  
 void loop() {
