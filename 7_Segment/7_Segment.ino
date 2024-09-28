@@ -62,6 +62,6 @@ void loop() {
   digitalWrite(PIN_DP, HIGH);
   for(int i = 0; i < 16; i++) {
     sevenSegEncode(i);
-    delay(500);
+    delay(1000);
   }
 }
